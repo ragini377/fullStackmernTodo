@@ -1,8 +1,14 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/todos";
+
 
 const BASE_URL = "https://fullstackmerntodo.onrender.com";
+
+const API_URL = `${BASE_URL}/api/todos`;
+
+//const API_URL = "http://localhost:5000/api/todos";
+
+//const BASE_URL = "https://fullstackmerntodo.onrender.com";
 
 export const getTodos = () => axios.get(API_URL);
 export const createTodo = (data) => axios.post(API_URL, data);
