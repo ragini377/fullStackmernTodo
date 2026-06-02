@@ -36,7 +36,8 @@ const TodoItem = ({ todo, onToggle, onDelete, onUpdate }) => {
       {/* Edit Mode */}
       {isEditing ? (
         <>
-          <input
+          <input 
+          autoFocus
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
             style={{ flex: 1 }}
@@ -54,19 +55,23 @@ const TodoItem = ({ todo, onToggle, onDelete, onUpdate }) => {
             style={{
               textDecoration: todo.completed ? "line-through" : "none",
               flex: 1,
+
+  
             }}
           >
             {todo.title}
           </span>
 
-          <button type="button" onClick={() => setIsEditing(true)}>
-            Edit
-          </button>
+       {!todo.completed && (
+  <button type="button"  style={{ cursor: "pointer" }} onClick={() => setIsEditing(true)}>
+    Edit
+  </button>
+)}
         </>
       )}
 
       {/* Delete */}
-      <button type="button" onClick={() => onDelete(todo._id)}>
+      <button  style={{ cursor: "pointer" }}  type="button" onClick={() => onDelete(todo._id)}>
         Delete
       </button>
     </div>

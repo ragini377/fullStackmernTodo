@@ -125,18 +125,22 @@ const TodoApp = () => {
         {/* ADD SECTION */}
         <div className="flex gap-3">
           <input
-            type="text"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                handleAdd();
-              }
-            }}
-            placeholder="Add new task..."
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-          />
+  type="text"
+  value={newTask}
+  onFocus={() => setSearchTerm("")}
+  onChange={(e) => {
+    setNewTask(e.target.value);
+    setSearchTerm("");
+  }}
+  onKeyDown={(e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleAdd();
+    }
+  }}
+  placeholder="Add new task..."
+  className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+/>  
 
           <button
             type="button"
